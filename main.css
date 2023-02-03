@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #333;
+  font-family: "sahel";
+}
+
+/* IMPORT SAHEL FONT */
+@font-face {
+  font-family: "sahel";
+  src: url(./Sahel.ttf);
+}
+
+/* CLOCK WRAPPER */
+.clock-wrapper {
+  width: 420px;
+  height: 140px;
+  display: flex;
+  background: linear-gradient(#fa561b, #46ff46, #ef10ff);
+  border-radius: 10px;
+  position: relative;
+  animation: color-animate 2s infinite linear;
+}
+
+/* SET HUE ANIMATION TO THE CLOCK */
+@keyframes color-animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* INNER BOX CLOCK */
+.clock-wrapper .display-clock {
+  width: 400px;
+  height: 120px;
+  background: #222;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CLOCK TEXT */
+.clock-wrapper .display-clock .clock {
+  margin: 0 2rem;
+  font-size: 3.2rem;
+  font-weight: bold;
+  background: linear-gradient(#fa561b, #46ff46, #ef10ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SET NEON COLOR AROUND CLOCK */
+.clock-wrapper::after,
+.clock-wrapper::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.clock-wrapper::before {
+  filter: blur(20px);
+}
+
+/* BRAND LINK */
+.brand-link {
+  text-decoration: none;
+  background: linear-gradient(to right, #ffeb38, #58ff42, #2beaff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-top: 4rem;
+  animation: text-rotate 2s linear infinite;
+}
+
+@keyframes text-rotate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
